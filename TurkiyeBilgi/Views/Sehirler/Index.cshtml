@@ -1,0 +1,34 @@
+﻿@model List<Sehir>
+@{
+    ViewData["Title"] = "Şehirler";
+}
+
+<h1>Şehirler</h1>
+
+<table class="table table-striped table-bordered" id="sehirler">
+    <thead>
+        <tr>
+            <th>Plaka No</th>
+            <th>Ad</th>
+            <th>Nüfus</th>
+            <th>Bölge</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sehir in Model)
+         {
+            <tr>
+                <td>@sehir.Id</td>
+                <td>@sehir.SehirAd</td>
+                <td>@sehir.Nufus</td>
+                <td>@sehir.Bolge.BolgeAd</td>
+            </tr>
+         }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        $("#sehirler").DataTable();
+    </script>
+}
